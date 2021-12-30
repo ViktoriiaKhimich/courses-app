@@ -13,11 +13,11 @@ const Input = ({
 	className,
 }) => {
 	return (
-		<div className='input'>
+		<div className='textfield__container'>
 			<label htmlFor={inputId}>{labelText}</label>
 			<input
 				value={value}
-				className={`text__field + ${className}`}
+				className={`textfield + ${className}`}
 				type={type}
 				name={inputName}
 				id={inputId}

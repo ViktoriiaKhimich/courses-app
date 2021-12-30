@@ -12,11 +12,11 @@ const CourseCard = (props) => {
 
 	return (
 		<div className='course__card'>
-			<div className='course__card__left'>
+			<div className='course__card__left__side'>
 				<h3>{title}</h3>
 				<p>{description}</p>
 			</div>
-			<div className='course__card__right'>
+			<div className='course__card__right__side'>
 				<p className='course__card__item truncate'>
 					<span className='course__card__title'>Authors: </span>
 					{authors.join(', ')}

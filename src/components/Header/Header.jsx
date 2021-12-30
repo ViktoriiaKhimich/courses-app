@@ -10,8 +10,8 @@ const Header = () => {
 	return (
 		<header className='header'>
 			<Logo />
-			<div className='header_rigth'>
-				<p className='user_name'>Viktoriia</p>
+			<div className='header__right__side'>
+				<p className='user__name'>Viktoriia</p>
 				<Button buttonText={LOGOUT_BTN} />
 			</div>
 		</header>

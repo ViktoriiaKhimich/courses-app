@@ -64,7 +64,7 @@ const CreateCourse = ({ handleClose }) => {
 	return (
 		<form onSubmit={handleSubmit}>
 			<div>
-				<div className='create_course_description'>
+				<div className='create__course__top__side'>
 					<Input
 						value={values.title}
 						type='text'
@@ -86,13 +86,13 @@ const CreateCourse = ({ handleClose }) => {
 						onChange={handleChange}
 					/>
 					{errors.description && (
-						<p className='error_msg'>{errors.description}</p>
+						<p className='error__msg'>{errors.description}</p>
 					)}
 				</div>
 			</div>
-			<div className='create_author'>
-				<div className='create_author_left'>
-					<div className='add_author_box'>
+			<div className='create__course__bottom__side'>
+				<div>
+					<div className='add__author__container'>
 						<h4>Add author</h4>
 						<Input
 							value={values.author_name}
@@ -104,20 +104,19 @@ const CreateCourse = ({ handleClose }) => {
 							onChange={handleChange}
 						/>
 						{errors.author_name && (
-							<p className='error_msg'>{errors.author_name}</p>
+							<p className='error__msg'>{errors.author_name}</p>
 						)}
 						<Button
-							className='create_author_btn'
+							className='create__author__btn'
 							type='button'
 							buttonText={CREATE_AUTHOR_BTN}
 							onClick={createAuthorHandler}
 						/>
 					</div>
-					<div className='add_duration_box'>
-						<h4 className='add_duration_title'>Duration</h4>
+					<div>
+						<h4 className='create__course__item__title'>Duration</h4>
 						<Input
 							value={values.duration}
-							className='create_author_input'
 							type='number'
 							inputId='duration'
 							inputName='duration'
@@ -125,21 +124,21 @@ const CreateCourse = ({ handleClose }) => {
 							labelText='Duration'
 							onChange={handleChange}
 						/>
-						{errors.duration && <p className='error_msg'>{errors.duration}</p>}
+						{errors.duration && <p className='error__msg'>{errors.duration}</p>}
 						<p>Duration: {pipeDuration(values.duration)}</p>
 					</div>
 				</div>
 				<div>
 					<div>
 						<ul className='author_list'>
-							<h4 className='add_duration_title'>Authors</h4>
+							<h4 className='create__course__item__title'>Authors</h4>
 							{authors.map((author) => (
-								<li key={author.id} className='author_list_item'>
+								<li key={author.id} className='author__list__item'>
 									<p>{author.name}</p>
 									<Button
 										type='button'
 										buttonText={ADD_AUTHOR_BTN}
-										className='add_author_btn'
+										className='add__author__btn'
 										onClick={() =>
 											addAuthorToCourseAuthors(author.id, author.name)
 										}
@@ -150,12 +149,14 @@ const CreateCourse = ({ handleClose }) => {
 					</div>
 					<div>
 						<ul>
-							<h4 className='add_duration_title'>Course authors</h4>
+							<h4 className='create__course__item__title'>Course authors</h4>
 							{!newCourseAuthor.length && (
-								<p className='add_duration_title'>Author list is empty</p>
+								<p className='create__course__item__title'>
+									Author list is empty
+								</p>
 							)}
 							{newCourseAuthor.map((author) => (
-								<li key={author.id} className='author_list_item'>
+								<li key={author.id} className='author__list__item'>
 									<p>{author.name}</p>
 									<Button
 										type='button'

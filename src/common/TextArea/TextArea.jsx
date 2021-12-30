@@ -12,7 +12,7 @@ const TextArea = ({
 	className,
 }) => {
 	return (
-		<div className='textarea'>
+		<div className='textarea__container'>
 			<label htmlFor={inputId}>{labelText}</label>
 			<textarea
 				value={value}

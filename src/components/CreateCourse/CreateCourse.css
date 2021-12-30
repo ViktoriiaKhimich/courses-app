@@ -1,11 +1,11 @@
-.create_course_description {
+.create__course__top__side {
     display: flex;
     justify-content: space-between;
     margin-bottom: 16px;
     align-items: center;
 }
 
-.create_author {
+.create__course__bottom__side {
     border: 2px solid black;
     padding: 24px;
     margin-top: 16px;
@@ -13,31 +13,31 @@
     justify-content: space-evenly;
 }
 
-.add_author_box {
+.create__author__btn {
+    margin-top: 12px;
+}
+
+.add__author__container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.add_author_btn {
+.add__author__btn {
     margin-left: 34px;
 }
 
-.create_author_btn {
-    margin-top: 12px;
-}
-
-.add_duration_title {
+.create__course__item__title {
     text-align: center;
 }
 
-.author_list_item {
+.author__list__item {
     display: flex;
     justify-content: space-between;
     margin-bottom: 8px;
 }
 
-.error_msg {
+.error__msg {
     font-size: 14px;
     color: red;
     align-self: flex-start;

@@ -64,7 +64,7 @@ const Courses = ({ handleClose }) => {
 				/>
 			))}
 			{!courses.length && (
-				<h4 className='no_courses_msg'>
+				<h4 className='no__courses__msg'>
 					There aren't any courses with such name or id
 				</h4>
 			)}
