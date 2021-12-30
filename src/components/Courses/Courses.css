@@ -1,0 +1,10 @@
+.courses__toolbar {
+    display: flex;
+	justify-content: space-between;
+	margin-bottom: 16px;
+}
+
+.no_courses_msg {
+	color: red;
+	text-align: center;
+}

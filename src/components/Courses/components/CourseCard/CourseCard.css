@@ -1,0 +1,35 @@
+.course__card {
+    border: 2px solid green;
+	padding: 16px;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	margin-bottom: 16px;
+}
+
+.course__card__left {
+    margin-right: 24px;
+}
+
+.course__card__right {
+    display: flex;
+    flex-direction: column;
+}
+
+.course__card__item {
+    margin-bottom: 10px;
+}
+
+.truncate {
+    width: 380px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.course__card__title {
+    font-weight: bold;
+}
+
+.course__card__btn {
+    align-self: center;
+}

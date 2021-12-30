@@ -1,0 +1,15 @@
+.textarea {
+	display: flex;
+	flex-direction: column;
+} 
+
+.textarea__field {
+    margin-top: 4px;
+    border: 2px solid yellow;
+	padding: 5px 10px;
+    height: 60px;
+}
+
+.textarea__field::placeholder {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}

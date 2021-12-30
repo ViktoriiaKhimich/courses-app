@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border: 2px solid red;
+	padding: 15px 10px;
+	margin-bottom: 16px;
+}
+
+.user_name {
+    margin-right: 40px;
+}
+
+.header_rigth {
+    display: flex;
+	align-items: center;
+}
