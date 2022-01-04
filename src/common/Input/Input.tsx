@@ -2,6 +2,17 @@ import React from 'react';
 
 import './Input.css';
 
+interface Props {
+	value: string | number;
+	inputId: string;
+	type: 'text' | 'number';
+	inputName: string;
+	labelText?: string;
+	placeholderText?: string;
+	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	className?: string;
+}
+
 const Input = ({
 	value,
 	inputId,
@@ -11,7 +22,7 @@ const Input = ({
 	placeholderText,
 	onChange,
 	className,
-}) => {
+}: Props) => {
 	return (
 		<div className='textfield__container'>
 			<label htmlFor={inputId}>{labelText}</label>

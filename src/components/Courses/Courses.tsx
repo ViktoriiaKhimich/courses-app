@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import CourseCard from './components/CourseCard/CourseCard';
 import { Button } from '../../common/Button/Button';
@@ -11,12 +12,14 @@ import {
 
 import './Courses.css';
 
-const Courses = ({ handleClose }) => {
+const Courses = () => {
+	const navigate = useNavigate();
+
 	const [courses, setCourses] = useState(mockedCoursesList);
 
 	const [searchedCourse, setSearchedCourse] = useState('');
 
-	const handleChange = (e) => {
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setSearchedCourse(e.target.value);
 		if (e.target.value === '') {
 			setCourses(mockedCoursesList);
@@ -35,7 +38,7 @@ const Courses = ({ handleClose }) => {
 		});
 	};
 
-	const handleClick = () => {
+	const handleSearchBtnClick = () => {
 		setCourses(filterCoursesBySearchedName());
 	};
 
@@ -45,9 +48,12 @@ const Courses = ({ handleClose }) => {
 				<SearchBar
 					value={searchedCourse}
 					onChange={handleChange}
-					onClick={handleClick}
+					onClick={handleSearchBtnClick}
 				/>
-				<Button buttonText={ADD_COURSE_BTN} onClick={handleClose} />
+				<Button
+					buttonText={ADD_COURSE_BTN}
+					onClick={() => navigate('/courses/add')}
+				/>
 			</div>
 			{courses.map((course) => (
 				<CourseCard
@@ -55,12 +61,13 @@ const Courses = ({ handleClose }) => {
 					authors={course.authors.map((item) =>
 						mockedAuthorsList
 							.map((author) => author.id === item && author.name)
-							.filter((item) => item !== false)
+							.filter((item) => item)
 					)}
 					title={course.title}
 					duration={course.duration}
-					date={course.creationDate}
+					creationDate={course.creationDate}
 					description={course.description}
+					id={course.id}
 				/>
 			))}
 			{!courses.length && (

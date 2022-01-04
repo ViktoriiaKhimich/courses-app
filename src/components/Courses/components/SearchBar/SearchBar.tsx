@@ -6,7 +6,13 @@ import { SEARCH_BTN } from '../../../../constants';
 
 import './SearchBar.css';
 
-const SearchBar = ({ value, onChange, onClick }) => {
+interface Props {
+	value: string;
+	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	onClick: () => void;
+}
+
+const SearchBar = ({ value, onChange, onClick }: Props) => {
 	return (
 		<div className='search__toolbar'>
 			<Input

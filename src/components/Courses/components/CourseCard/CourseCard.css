@@ -33,3 +33,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.link__btn {
+    text-align: center;
+    text-decoration: none;
+}

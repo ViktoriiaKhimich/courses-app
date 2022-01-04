@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { v4 } from 'uuid';
+import { useNavigate } from 'react-router-dom';
 
 import Input from '../../common/Input/Input';
 import { Button } from '../../common/Button/Button';
@@ -18,7 +19,9 @@ import { generateCurrentDate } from '../../helpers/dateGenerator';
 
 import './CreateCourse.css';
 
-const CreateCourse = ({ handleClose }) => {
+const CreateCourse = () => {
+	const navigate = useNavigate();
+
 	const [authors, setAuthors] = useState(mockedAuthorsList);
 	const [newCourseAuthor, setNewCourseAuthor] = useState([]);
 
@@ -31,7 +34,7 @@ const CreateCourse = ({ handleClose }) => {
 		mockedAuthorsList.push(newAuthor);
 	};
 
-	const addAuthorToCourseAuthors = (authorId, authorName) => {
+	const addAuthorToCourseAuthors = (authorId: string, authorName: string) => {
 		setAuthors(authors.filter((author) => author.id !== authorId));
 		setNewCourseAuthor([
 			...newCourseAuthor,
@@ -39,14 +42,17 @@ const CreateCourse = ({ handleClose }) => {
 		]);
 	};
 
-	const deleteAuthorFromCourseAuthors = (authorId, authorName) => {
+	const deleteAuthorFromCourseAuthors = (
+		authorId: string,
+		authorName: string
+	) => {
 		setNewCourseAuthor(
 			newCourseAuthor.filter((author) => author.id !== authorId)
 		);
 		setAuthors([...authors, { id: authorId, name: authorName }]);
 	};
 
-	const onSubmit = (e) => {
+	const onSubmit = (e: any) => {
 		const createdCourse = {
 			id: v4(),
 			title: values.title,
@@ -56,7 +62,7 @@ const CreateCourse = ({ handleClose }) => {
 			authors: newCourseAuthor.map((author) => author.id),
 		};
 		mockedCoursesList.push(createdCourse);
-		handleClose();
+		navigate('/courses');
 	};
 
 	const { handleChange, handleSubmit, values, errors } = useForm(onSubmit);

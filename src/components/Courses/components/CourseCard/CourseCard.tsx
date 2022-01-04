@@ -1,14 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { Button } from '../../../../common/Button/Button';
 import { pipeDuration } from '../../../../helpers/pipeDuration';
 import { SHOW_COURSE_BTN } from '../../../../constants';
+import { CourseInterface } from '../../coursesTypes';
 
 import './CourseCard.css';
 
-const CourseCard = (props) => {
-	const { description, title, date, duration, authors } = props;
-	const formattedDate = date.split('/').join('.');
+const CourseCard = (props: CourseInterface) => {
+	const { description, title, creationDate, duration, authors, id } = props;
+	const formattedDate = creationDate.split('/').join('.');
 
 	return (
 		<div className='course__card'>
@@ -28,11 +29,9 @@ const CourseCard = (props) => {
 				<p className='course__card__item'>
 					<span className='course__card__title'>Created: </span> {formattedDate}
 				</p>
-				<Button
-					type='button'
-					buttonText={SHOW_COURSE_BTN}
-					className='course__card__btn'
-				></Button>
+				<Link to={`/courses/${id}`} className='btn link__btn'>
+					{SHOW_COURSE_BTN}
+				</Link>
 			</div>
 		</div>
 	);

@@ -1,0 +1,26 @@
+.course__info {
+    border: 2px solid lightskyblue;
+    padding: 24px;
+}
+
+.course__info__heading {
+    text-align: center;
+}
+
+.course__info__main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.course__info__description {
+    flex-basis: 60%;
+}
+
+.course__info__title {
+    margin-bottom: 10px;
+}
+
+.course__info__title__text {
+    font-weight: 700;
+    margin-bottom: 10px;
+}

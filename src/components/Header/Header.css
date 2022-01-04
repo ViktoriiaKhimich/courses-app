@@ -7,11 +7,11 @@
 	margin-bottom: 16px;
 }
 
-.user_name {
+.user__name {
     margin-right: 40px;
 }
 
-.header__right__ {
+.header__right__side {
     display: flex;
 	align-items: center;
 }

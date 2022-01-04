@@ -1,12 +1,22 @@
 import { useState } from 'react';
 
-const useForm = (callback) => {
-	const [values, setValues] = useState({});
-	const [errors, setErrors] = useState({});
+interface Values {
+	user_name?: string;
+	user_email?: string;
+	user_password?: string;
+	author_name?: string;
+	title?: string;
+	description?: string;
+	duration?: number;
+}
 
-	const omit = (key, { [key]: _, ...obj }) => obj;
+const useForm = (callback: any) => {
+	const [values, setValues] = useState<Values>({});
+	const [errors, setErrors] = useState<any>({});
 
-	const validateInputs = (name, value) => {
+	const omit = (key: string, { [key]: _, ...obj }) => obj;
+
+	const validateInputs = (name: string, value: any) => {
 		switch (name) {
 			case 'description':
 				if (value.length < 2) {
@@ -15,7 +25,7 @@ const useForm = (callback) => {
 						description: 'Description should be at least 2 characters long',
 					});
 				} else {
-					let newObj = omit(errors, 'description');
+					let newObj = omit(errors, { description: '' });
 					setErrors(newObj);
 				}
 				break;
@@ -26,7 +36,7 @@ const useForm = (callback) => {
 						author_name: 'Author name should be at least 2 characters long',
 					});
 				} else {
-					let newObj = omit(errors, 'author_name');
+					let newObj = omit(errors, { author_name: '' });
 					setErrors(newObj);
 				}
 				break;
@@ -37,7 +47,7 @@ const useForm = (callback) => {
 						duration: 'Course duration should be more than 0 minutes',
 					});
 				} else {
-					let newObj = omit(errors, 'duration');
+					let newObj = omit(errors, { duration: '' });
 					setErrors(newObj);
 				}
 				break;
@@ -47,7 +57,7 @@ const useForm = (callback) => {
 		}
 	};
 
-	const handleChange = (e) => {
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		e.preventDefault();
 
 		const { name, value } = e.target;
@@ -60,7 +70,7 @@ const useForm = (callback) => {
 		});
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		if (Object.keys(values).length !== 0) {

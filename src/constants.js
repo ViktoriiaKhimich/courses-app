@@ -12,7 +12,13 @@ export const ADD_AUTHOR_BTN = 'Add author';
 
 export const DELETE_AUTHOR_BTN = 'Delete author';
 
+export const LOGIN = 'Login';
+
+export const REGISTER = 'Register';
+
 export const LOGOUT_BTN = 'Log out';
+
+export const GO_BACK = '< Back to courses';
 
 export const mockedCoursesList = [
 	{
